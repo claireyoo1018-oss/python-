@@ -14,3 +14,5 @@ function selectRegion(id) {
 document.querySelectorAll('[data-region]').forEach(b => b.addEventListener('click',() => selectRegion(b.dataset.region)));
 regionSelect.addEventListener('change', e => selectRegion(e.target.value));
 selectRegion('ganghwa');
+// SVG markers support keyboard activation as well as pointer input.
+document.querySelectorAll('.region-marker').forEach(marker => marker.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); selectRegion(marker.dataset.region); } }));
